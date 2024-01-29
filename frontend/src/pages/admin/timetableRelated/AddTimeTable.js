@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addStuff } from '../../../redux/userRelated/userHandle';
+import { addFileStuff } from '../../../redux/userRelated/userHandle';
 import { underControl } from '../../../redux/userRelated/userSlice';
 import { CircularProgress } from '@mui/material';
 import Popup from '../../../components/Popup';
@@ -21,9 +21,13 @@ const AddTimetable = () => {
   const address = "Timetable";
 
   const submitHandler = (event) => {
+    console.log(event.target);
     event.preventDefault();
     setLoader(true);
-    dispatch(addStuff({ file, adminID }, address));
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('adminID', adminID);
+    dispatch(addFileStuff(formData, address));
   };
 
   useEffect(() => {

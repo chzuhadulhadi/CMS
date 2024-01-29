@@ -5,6 +5,7 @@ const Teacher = require('../models/teacherSchema.js');
 
 const sclassCreate = async (req, res) => {
     try {
+        console.log(req.body);
         const sclass = new Sclass({
             sclassName: req.body.sclassName,
             school: req.body.adminID
@@ -14,10 +15,13 @@ const sclassCreate = async (req, res) => {
             sclassName: req.body.sclassName,
             school: req.body.adminID
         });
+        console.log( req.body.sclassName);
+        console.log(sclass.sclassName);
 
         if (existingSclassByName) {
             res.send({ message: 'Sorry this class name already exists' });
         }
+
         else {
             const result = await sclass.save();
             res.send(result);

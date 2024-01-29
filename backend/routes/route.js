@@ -25,7 +25,8 @@ const {
     removeStudentAttendance } = require('../controllers/student_controller.js');
 const { subjectCreate, classSubjects, deleteSubjectsByClass, getSubjectDetail, deleteSubject, freeSubjectList, allSubjects, deleteSubjects } = require('../controllers/subject-controller.js');
 const { teacherRegister, teacherLogIn, getTeachers, getTeacherDetail, deleteTeachers, deleteTeachersByClass, deleteTeacher, updateTeacherSubject, teacherAttendance } = require('../controllers/teacher-controller.js');
-
+const multer=require('multer');
+const upload = multer({ dest: "uploads/" });
 // Admin
 router.post('/AdminReg', adminRegister);
 router.post('/AdminLogin', adminLogIn);
@@ -95,7 +96,7 @@ router.get('/ComplainList/:id', complainList);
 // TimeTable
 
 router.get('/list' , timetableList);
-router.post('/create', timetableCreate);
+router.post('/TimetableCreate',upload.single('file'), timetableCreate);
 router.delete('/delete/:id', deleteTimetable);
 
 // Sclass

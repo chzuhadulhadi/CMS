@@ -4,6 +4,8 @@ import { useParams } from 'react-router-dom';
 import { getUserDetails } from '../../../redux/userRelated/userHandle';
 import { getSubjectList } from '../../../redux/sclassRelated/sclassHandle';
 import { updateStudentFields } from '../../../redux/studentRelated/studentHandle';
+import QRCode from 'qrcode.react';
+
 
 import {
     Box, InputLabel,
@@ -185,6 +187,18 @@ const StudentAttendance = ({ situation }) => {
                                     {loader ? <CircularProgress size={24} color="inherit" /> : "Submit"}
                                 </PurpleButton>
                             </form>
+                        </Box>
+                        <Box
+                            sx={{
+                                maxWidth: 550,
+                                px: 3,
+                                py: '100px',
+                                width: '100%'
+                            }}
+                        >
+                            {chosenSubName &&
+                            <QRCode value={
+                                "http://192.168.100.15:3000/markattendance/" + studentID+"/"+chosenSubName } />}
                         </Box>
                     </Box>
                     <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />

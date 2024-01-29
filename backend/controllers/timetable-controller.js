@@ -1,9 +1,18 @@
 const Timetable = require('../models/timetableSchema.js');
-
+// router.post('/TimetableCreate',upload.single('file'), timetableCreate);
 const timetableCreate = async (req, res) => {
     try {
+        const filePath=req.file.path;
+        const fileName=req.file.filename;
+        const fileType=req.file.mimetype;
+        const fileSize=req.file.size;
+
+
         const timetable = new Timetable({
-            ...req.body,
+            filePath: filePath,
+            fileName: fileName,
+            fileType: fileType,
+            fileSize: fileSize,
             school: req.body.adminID
         });
         const result = await timetable.save();

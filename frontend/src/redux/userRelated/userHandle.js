@@ -109,10 +109,26 @@ export const updateUser = (fields, id, address) => async (dispatch) => {
 
 export const addStuff = (fields, address) => async (dispatch) => {
     dispatch(authRequest());
-
     try {
         const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}Create`, fields, {
             headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (result.data.message) {
+            dispatch(authFailed(result.data.message));
+        } else {
+            dispatch(stuffAdded(result.data));
+        }
+    } catch (error) {
+        dispatch(authError(error));
+    }
+};
+
+export const addFileStuff = (formData, address) => async (dispatch) => {
+    dispatch(authRequest());
+    try {
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL}/${address}Create`, formData, {
+            headers: { 'Content-Type': 'multipart/form-data' },
         });
 
         if (result.data.message) {
