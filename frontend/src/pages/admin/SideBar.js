@@ -59,6 +59,12 @@ const SideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Complains" />
                 </ListItemButton>
+                <ListItemButton component={Link} to="/Admin/Addtimetable">
+                    <ListItemIcon>
+                        <ReportIcon color={location.pathname.startsWith("/Admin/timetable") ? 'primary' : 'inherit'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Timetable" />
+                </ListItemButton>
             </React.Fragment>
             <Divider sx={{ my: 1 }} />
             <React.Fragment>
