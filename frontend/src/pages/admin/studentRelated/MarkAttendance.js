@@ -17,7 +17,7 @@ import { PurpleButton } from '../../../components/buttonStyles';
 import Popup from '../../../components/Popup';
 
 const MarkAttendance = () => {
-    const [loader, setLoader] = useState(false)
+    const [loader, setLoader] = useState(true)
     const path = window.location.pathname.split("/");
     const subjectID = path[path.length - 1];
     const studentID = path[path.length - 2];
@@ -35,14 +35,18 @@ const MarkAttendance = () => {
         }
         );
     }
-        , [dispatch, fields, studentID]);
+        , []);
 
     return (
         <>{
             loader ? (
                 <div>Loading...</div>
             ) : (
-                <div>Attendance Marked</div>
+                <><div>Attendance Marked</div>
+                {studentID}
+                {subjectID}
+                </>
+
             )
         }</>
     )

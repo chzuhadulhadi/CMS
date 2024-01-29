@@ -20,11 +20,16 @@ const StudentComplain = () => {
     const [loader, setLoader] = useState(false)
     const [message, setMessage] = useState("");
     const [showPopup, setShowPopup] = useState(false);
+    const [comps, setComps] = useState(['', '', '', '']);
 
     const fields = {
         user,
         date,
-        complaint,
+        complaint:['Do you like your teacher',
+        'Do you like your school'
+    ].map((item, index) => {
+            return item+":"+comps[index]
+        }).join(","),
         school,
     };
 
@@ -81,33 +86,68 @@ const StudentComplain = () => {
                                         shrink: true,
                                     }}
                                 />
-                                <TextField
-                                    fullWidth
-                                    label="Write your complain"
-                                    variant="outlined"
-                                    value={complaint}
-                                    onChange={(event) => {
-                                        setComplaint(event.target.value);
-                                    }}
-                                    required
-                                    multiline
-                                    maxRows={4}
-                                />
+                                <Typography variant="h6">Do you like your teacher</Typography>
+                                <Stack spacing={1} direction="row">
+                                    <Typography variant="body1">Yes</Typography>
+                                    <input type="radio" name="teacher" value="yes" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[0] = event.target.value;
+                                        return newComps;
+                                    })} required checked={
+                                        comps[0] === 'yes'
+                                    } />
+                                    <Typography variant="body1">No</Typography>
+                                    <input type="radio" name="teacher" value="no" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[0] = event.target.value;
+                                        return newComps;
+                                    })
+                                    }
+                                        checked={
+                                            comps[0] === 'no'
+                                        } required />
+                                <Typography variant="h6">Do you like your school</Typography>
+                                <Stack spacing={1} direction="row">
+                                    <Typography variant="body1">Yes</Typography>
+                                    <input type="radio" name="school" value="yes" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[1] = event.target.value;
+                                        return newComps;
+
+                                    })
+                                    }
+                                        checked={
+                                            comps[1] === 'yes'
+                                        } required />
+                                    <Typography variant="body1">No</Typography>
+                                    <input type="radio" name="school" value="no" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[1] = event.target.value;
+                                        return newComps;
+                                    }
+                                    )
+                                    }
+                                        checked={
+                                            comps[1] === 'no'
+                                        } required />
+                                </Stack>
+
                             </Stack>
-                            <BlueButton
-                                fullWidth
-                                size="large"
-                                sx={{ mt: 3 }}
-                                variant="contained"
-                                type="submit"
-                                disabled={loader}
-                            >
-                                {loader ? <CircularProgress size={24} color="inherit" /> : "Add"}
-                            </BlueButton>
-                        </form>
-                    </div>
-                </Box>
+                        </Stack>
+                        <BlueButton
+                            fullWidth
+                            size="large"
+                            sx={{ mt: 3 }}
+                            variant="contained"
+                            type="submit"
+                            disabled={loader}
+                        >
+                            {loader ? <CircularProgress size={24} color="inherit" /> : "Add"}
+                        </BlueButton>
+                    </form>
+                </div>
             </Box>
+        </Box >
             <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />
         </>
     );

@@ -85,7 +85,7 @@ const ShowTimetable = () => {
                                      
                                    
                             {Array.isArray(timetablesList) && timetablesList.length > 0 &&
-                                <TableTemplate buttonHaver={TimetableButtonHaver} />
+                                <TableTemplate buttonHaver={TimetableButtonHaver} columns={timetablesList}/>
                             }
                             {<SpeedDialTemplate actions={actions} />}
                         </Paper>

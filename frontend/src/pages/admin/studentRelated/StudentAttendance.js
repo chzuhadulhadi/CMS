@@ -86,7 +86,8 @@ const StudentAttendance = ({ situation }) => {
             setMessage("Done Successfully")
         }
     }, [response, statestatus, error])
-
+console.log(
+    "http://192.168.100.27:3000/markattendance/" + studentID+"/"+chosenSubName );
     return (
         <>
             {loading
@@ -198,7 +199,7 @@ const StudentAttendance = ({ situation }) => {
                         >
                             {chosenSubName &&
                             <QRCode value={
-                                "http://192.168.100.15:3000/markattendance/" + studentID+"/"+chosenSubName } />}
+                                "http://192.168.100.27:3000/markattendance/" + studentID+"/"+chosenSubName } />}
                         </Box>
                     </Box>
                     <Popup message={message} setShowPopup={setShowPopup} showPopup={showPopup} />

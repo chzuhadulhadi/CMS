@@ -95,7 +95,7 @@ router.get('/ComplainList/:id', complainList);
 
 // TimeTable
 
-router.get('/list' , timetableList);
+router.get('/timetable/list/:id' , timetableList);
 router.post('/TimetableCreate',upload.single('file'), timetableCreate);
 router.delete('/delete/:id', deleteTimetable);
 

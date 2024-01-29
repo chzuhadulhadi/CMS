@@ -25,8 +25,8 @@ const timetableCreate = async (req, res) => {
 const timetableList = async (req, res) => {
     try {
         
-        const timetables = await Timetable.find().populate('school');
-
+        const timetables = await Timetable.find({school: req.params.id});
+        console.log(timetables);
         res.send(timetables);
     } catch (error) {
         res.status(500).json(error);

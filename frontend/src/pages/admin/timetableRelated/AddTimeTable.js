@@ -28,6 +28,7 @@ const AddTimetable = () => {
     formData.append('file', file);
     formData.append('adminID', adminID);
     dispatch(addFileStuff(formData, address));
+    setMessage("File Uploaded Successfully");
   };
 
   useEffect(() => {
