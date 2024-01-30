@@ -4,16 +4,11 @@ import { useNavigate } from "react-router-dom";
 import {
     Paper, Box, IconButton
 } from '@mui/material';
-import NoteAddIcon from '@mui/icons-material/NoteAdd';
 import PreviewIcon from '@mui/icons-material/Preview';
-import ViewListIcon from '@mui/icons-material/ViewList';
 import DeleteIcon from "@mui/icons-material/Delete";
-import { getAllTimetables } from '../../../redux/timetableRelated/timetableHandel';
-import { deleteUser } from '../../../redux/userRelated/userHandle';
-import TableTemplate from '../../../components/TableTemplate';
-import SpeedDialTemplate from '../../../components/SpeedDialTemplate';
-import { GreenButton } from '../../../components/buttonStyles';
-import AddTimetable from './AddTimeTable';
+import { getAllTimetables } from '../../redux/timetableRelated/timetableHandel';
+import TableTemplate from '../../components/TableTemplate';
+import { GreenButton } from '../../components/buttonStyles';
 
 
 
@@ -22,32 +17,19 @@ const ShowTimetable = () => {
     const dispatch = useDispatch();
     const { timetablesList, loading, error, response } = useSelector((state) => state.timetable);
     const { currentUser } = useSelector(state => state.user);
-
+    console.log(currentUser.school._id);
     useEffect(() => {
-        dispatch(getAllTimetables(currentUser._id, "Timetable"));
+        dispatch(getAllTimetables(currentUser.school._id, "Timetable"));
     }, [currentUser._id, dispatch]);
 
     if (error) {
         console.log(error);
     }
-
-    const deleteHandler = (deleteID, address) => {
-        dispatch(deleteUser(deleteID, address))
-            .then(() => {
-                dispatch(getAllTimetables(currentUser._id, "Timetable"));
-            })
-    }
-
     const [addTimeTable, setTimeTable] = useState(false);
-
-
 
     const TimetableButtonHaver = ({ row }) => {
         return (
             <>
-                <IconButton onClick={() => deleteHandler(row.id, "Timetable")}>
-                    <DeleteIcon color="error" />
-                </IconButton>
                 <IconButton onClick={() => navigate(`/timetable/${row._id}`)}>
                     <PreviewIcon color="primary" />
                 </IconButton>
@@ -57,16 +39,6 @@ const ShowTimetable = () => {
 
 
 
-    const actions = [
-        {
-            icon: <NoteAddIcon color="primary" />, name: 'Add New Time Table',
-            action: () => navigate("/Admin/timetable")
-        },
-        {
-            icon: <DeleteIcon color="error" />, name: 'Delete All TimeTables',
-            action: () => deleteHandler(currentUser._id, "Timetables")
-        }
-    ];
 
 
     return (
@@ -76,7 +48,6 @@ const ShowTimetable = () => {
                 <div>Loading...</div>
                 :
                 <>
-                    {addTimeTable && < AddTimetable />}
                     {response ?
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                             <GreenButton variant="contained"
@@ -96,7 +67,6 @@ const ShowTimetable = () => {
                                     rows={timetablesList}
                                 />
                             }
-                            {<SpeedDialTemplate actions={actions} />}
                         </Paper>
                     }
                 </>

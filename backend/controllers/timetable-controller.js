@@ -2,8 +2,9 @@ const Timetable = require('../models/timetableSchema.js');
 // router.post('/TimetableCreate',upload.single('file'), timetableCreate);
 const timetableCreate = async (req, res) => {
     try {
+        console.log(req.file);
         const filePath=req.file.path;
-        const fileName=req.file.filename;
+        const fileName=req.file.originalname;
         const fileType=req.file.mimetype;
         const fileSize=req.file.size;
 
@@ -32,6 +33,14 @@ const timetableList = async (req, res) => {
         res.status(500).json(error);
     }
 }
+const getTimetable = async (req, res) => {
+    try {
+        const timetable = await Timetable.findById(req.params.id);
+        res.download(`${__dirname}/../${timetable.filePath}`);
+    } catch (error) {
+        res.status(500).json(error);
+    }
+};
 
 
 const deleteTimetable = async (req, res) => {
@@ -44,4 +53,4 @@ const deleteTimetable = async (req, res) => {
 };
 
 
-module.exports = { timetableCreate, timetableList,  deleteTimetable};
+module.exports = { timetableCreate, timetableList,  deleteTimetable,getTimetable};

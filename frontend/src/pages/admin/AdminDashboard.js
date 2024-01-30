@@ -29,6 +29,7 @@ import ShowNotices from "./noticeRelated/ShowNotices";
 
 import AddTimeTable from "./timetableRelated/AddTimeTable";
 import ShowTimetable from "./timetableRelated/ShowTimeTable";
+import Timetable from "./timetableRelated/TimeTable";
 
 import ShowSubjects from "./subjectRelated/ShowSubjects";
 import SubjectForm from "./subjectRelated/SubjectForm";
@@ -108,6 +109,8 @@ const AdminDashboard = () => {
             {/* Notice */}
             <Route path="/Admin/addnotice" element={<AddNotice />} />
             <Route path="/Admin/notices" element={<ShowNotices />} />
+            <Route path="/timetable/:id" element={<Timetable />} />
+
 
             {/* Time Table */}
 

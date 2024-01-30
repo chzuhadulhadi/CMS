@@ -172,7 +172,7 @@ const updateExamResult = async (req, res) => {
 
 const studentAttendance = async (req, res) => {
     const { subName, status, date } = req.body;
-
+    console.log (req.body);
     try {
         const student = await Student.findById(req.params.id);
 

@@ -2,12 +2,12 @@ const router = require('express').Router();
 
 // const { adminRegister, adminLogIn, deleteAdmin, getAdminDetail, updateAdmin } = require('../controllers/admin-controller.js');
 
-const { adminRegister, adminLogIn, getAdminDetail} = require('../controllers/admin-controller.js');
+const { adminRegister, adminLogIn, getAdminDetail } = require('../controllers/admin-controller.js');
 
 const { sclassCreate, sclassList, deleteSclass, deleteSclasses, getSclassDetail, getSclassStudents } = require('../controllers/class-controller.js');
 const { complainCreate, complainList } = require('../controllers/complain-controller.js');
 const { noticeCreate, noticeList, deleteNotices, deleteNotice, updateNotice } = require('../controllers/notice-controller.js');
-const {timetableList , timetableCreate , deleteTimetable} = require('../controllers/timetable-controller.js')
+const { timetableList, timetableCreate, deleteTimetable,getTimetable } = require('../controllers/timetable-controller.js')
 const {
     studentRegister,
     studentLogIn,
@@ -25,7 +25,7 @@ const {
     removeStudentAttendance } = require('../controllers/student_controller.js');
 const { subjectCreate, classSubjects, deleteSubjectsByClass, getSubjectDetail, deleteSubject, freeSubjectList, allSubjects, deleteSubjects } = require('../controllers/subject-controller.js');
 const { teacherRegister, teacherLogIn, getTeachers, getTeacherDetail, deleteTeachers, deleteTeachersByClass, deleteTeacher, updateTeacherSubject, teacherAttendance } = require('../controllers/teacher-controller.js');
-const multer=require('multer');
+const multer = require('multer');
 const upload = multer({ dest: "uploads/" });
 // Admin
 router.post('/AdminReg', adminRegister);
@@ -95,9 +95,10 @@ router.get('/ComplainList/:id', complainList);
 
 // TimeTable
 
-router.get('/timetable/list/:id' , timetableList);
-router.post('/TimetableCreate',upload.single('file'), timetableCreate);
+router.get('/timetable/list/:id', timetableList);
+router.post('/TimetableCreate', upload.single('file'), timetableCreate);
 router.delete('/delete/:id', deleteTimetable);
+router.get('/Timetable/:id', getTimetable);
 
 // Sclass
 

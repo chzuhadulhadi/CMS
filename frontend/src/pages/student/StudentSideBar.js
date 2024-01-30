@@ -8,6 +8,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import { ListAltOutlined } from '@mui/icons-material';
 
 const StudentSideBar = () => {
     const location = useLocation();
@@ -37,6 +38,12 @@ const StudentSideBar = () => {
                         <AnnouncementOutlinedIcon color={location.pathname.startsWith("/Student/complain") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
                     <ListItemText primary="Complain" />
+                </ListItemButton>
+                <ListItemButton component={Link} to="/Student/timetable">
+                    <ListItemIcon>
+                        <ListAltOutlined color={location.pathname.startsWith("/Student/timetable") ? 'primary' : 'inherit'} />
+                    </ListItemIcon>
+                    <ListItemText primary="Time Table" />
                 </ListItemButton>
             </React.Fragment>
             <Divider sx={{ my: 1 }} />

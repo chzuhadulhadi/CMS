@@ -130,7 +130,36 @@ const StudentComplain = () => {
                                         checked={
                                             comps[1] === 'no'
                                         } required />
+
                                 </Stack>
+
+                                <Typography variant="h6">Do you like your school</Typography>
+                                <Stack spacing={1} direction="row">
+                                    <Typography variant="body1">Yes</Typography>
+                                    <input type="radio" name="school" value="yes" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[1] = event.target.value;
+                                        return newComps;
+
+                                    })
+                                    }
+                                        checked={
+                                            comps[1] === 'yes'
+                                        } required />
+                                    <Typography variant="body1">No</Typography>
+                                    <input type="radio" name="school" value="no" onChange={(event) => setComps((prev) => {
+                                        const newComps = [...prev];
+                                        newComps[1] = event.target.value;
+                                        return newComps;
+                                    }
+                                    )
+                                    }
+                                        checked={
+                                            comps[1] === 'no'
+                                        } required />
+
+                                </Stack>
+                                
 
                             </Stack>
                         </Stack>

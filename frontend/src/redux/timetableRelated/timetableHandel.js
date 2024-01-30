@@ -28,6 +28,30 @@ export const getAllTimetables = (schoolId) => async (dispatch) => {
     }
 };
 
+
+export const getTimetable = (id, address) => async (dispatch) => {
+    dispatch(fetchTimetablesStart());
+
+    try {
+        const result = await axios.get(
+            `${API_URL}/${address}/${id}`,
+            {
+                headers: { 'Content-Type': 'application/json' },
+                responseType: 'arraybuffer' // Setting responseType to 'arraybuffer' for binary files
+            }
+        );
+
+        if (result.data.message) {
+            dispatch(fetchTimetablesFailure(result.data.message));
+        } else {
+            dispatch(fetchTimetablesSuccess(result.data));
+        }
+    } catch (error) {
+        dispatch(fetchTimetablesFailure(error.message));
+    }
+}
+
+
 // Action to delete a timetable
 export const deleteTimetable = (timetableId) => async (dispatch) => {
     dispatch(deleteTimetableStart());

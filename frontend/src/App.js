@@ -9,6 +9,7 @@ import LoginPage from './pages/LoginPage';
 import AdminRegisterPage from './pages/admin/AdminRegisterPage';
 import ChooseUser from './pages/ChooseUser';
 import MarkAttendance from './pages/admin/studentRelated/MarkAttendance';
+import Timetable from './pages/admin/timetableRelated/TimeTable';
 
 const App = () => {
   const { currentRole } = useSelector(state => state.user);
@@ -19,12 +20,14 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path='/markattendance/:studentID/:subjectID' element={<MarkAttendance/>} />
+          
           <Route path="/choose" element={<ChooseUser visitor="normal" />} />
           <Route path="/chooseasguest" element={<ChooseUser visitor="guest" />} />
 
           <Route path="/Adminlogin" element={<LoginPage role="Admin" />} />
           <Route path="/Studentlogin" element={<LoginPage role="Student" />} />
           <Route path="/Teacherlogin" element={<LoginPage role="Teacher" />} />
+          <Route path="/timetable/:id" element={<Timetable />} />
 
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
 
