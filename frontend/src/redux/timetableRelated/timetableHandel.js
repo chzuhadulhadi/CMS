@@ -35,11 +35,11 @@ export const getTimetable = (id, address) => async (dispatch) => {
     try {
       
 
-        if (result.data.message) {
-            dispatch(fetchTimetablesFailure(result.data.message));
-        } else {
-            dispatch(fetchTimetablesSuccess(result.data));
-        }
+        // if (result.data.message) {
+        //     dispatch(fetchTimetablesFailure(result.data.message));
+        // } else {
+        //     dispatch(fetchTimetablesSuccess(result.data));
+        // }
     } catch (error) {
         dispatch(fetchTimetablesFailure(error.message));
     }
