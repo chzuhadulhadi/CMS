@@ -33,13 +33,7 @@ export const getTimetable = (id, address) => async (dispatch) => {
     dispatch(fetchTimetablesStart());
 
     try {
-        const result = await axios.get(
-            `${API_URL}/${address}/${id}`,
-            {
-                headers: { 'Content-Type': 'application/json' },
-                responseType: 'arraybuffer' // Setting responseType to 'arraybuffer' for binary files
-            }
-        );
+      
 
         if (result.data.message) {
             dispatch(fetchTimetablesFailure(result.data.message));

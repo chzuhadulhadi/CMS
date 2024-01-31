@@ -48,15 +48,10 @@ const Timetable = () => {
             
         };
         binaryPdf();
-
     }, []);
-
-
     return (
         <>
-            {/* show pdf here */}
             <iframe src={url} width="100%" height="1000px"></iframe>
-
         </>
     );
 };
