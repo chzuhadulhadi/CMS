@@ -3,7 +3,7 @@ import { getClassStudents, getSubjectDetails } from '../../../redux/sclassRelate
 import { useNavigate, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, Tab, Container, Typography, BottomNavigation, BottomNavigationAction, Paper } from '@mui/material';
-import { BlueButton, GreenButton, PurpleButton } from '../../../components/buttonStyles';
+import { BlueButton, GreenButton, LightBlueButton, PurpleButton } from '../../../components/buttonStyles';
 import TableTemplate from '../../../components/TableTemplate';
 import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
@@ -58,20 +58,20 @@ const ViewSubject = () => {
   const StudentsAttendanceButtonHaver = ({ row }) => {
     return (
       <>
-        <BlueButton
+        <LightBlueButton
           variant="contained"
           onClick={() => navigate("/Admin/students/student/" + row.id)}
         >
           View
-        </BlueButton>
-        <PurpleButton
+        </LightBlueButton>
+        <BlueButton
           variant="contained"
           onClick={() =>
             navigate(`/Admin/subject/student/attendance/${row.id}/${subjectID}`)
           }
         >
           Take Attendance
-        </PurpleButton>
+        </BlueButton>
       </>
     );
   };
@@ -79,16 +79,16 @@ const ViewSubject = () => {
   const StudentsMarksButtonHaver = ({ row }) => {
     return (
       <>
-        <BlueButton
+        <LightBlueButton
           variant="contained"
           onClick={() => navigate("/Admin/students/student/" + row.id)}
         >
           View
-        </BlueButton>
-        <PurpleButton variant="contained"
+        </LightBlueButton>
+        <BlueButton variant="contained"
           onClick={() => navigate(`/Admin/subject/student/marks/${row.id}/${subjectID}`)}>
           Provide Marks
-        </PurpleButton>
+        </BlueButton>
       </>
     );
   };
@@ -110,7 +110,7 @@ const ViewSubject = () => {
         ) : (
           <>
             <Typography variant="h5" gutterBottom>
-              Students List:
+              STUDENTS LIST
             </Typography>
 
             {selectedSection === 'attendance' &&
@@ -145,9 +145,13 @@ const ViewSubject = () => {
     const numberOfStudents = sclassStudents.length;
 
     return (
-      <>
+      <Paper  sx ={{ width: '70%',
+      padding: 2,
+      borderRadius: 5,
+      margin: 'auto',
+      marginTop: 4,}}>
         <Typography variant="h4" align="center" gutterBottom>
-          Subject Details
+          SUBJECT DETAILS
         </Typography>
         <Typography variant="h6" gutterBottom>
           Subject Name : {subjectDetails && subjectDetails.subName}
@@ -174,7 +178,7 @@ const ViewSubject = () => {
             Add Subject Teacher
           </GreenButton>
         }
-      </>
+      </Paper>
     );
   }
 

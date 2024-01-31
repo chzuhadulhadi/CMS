@@ -7,6 +7,7 @@
 // import { Button, Collapse } from '@mui/material';
 
 import { useSelector } from 'react-redux';
+import {Paper} from '@mui/material';
 
 const AdminProfile = () => {
     // const [showTab, setShowTab] = useState(false);
@@ -45,7 +46,13 @@ const AdminProfile = () => {
     // }
 
     return (
-        <div>
+        <Paper  sx ={{ width: '70%',
+        padding: 2,
+        borderRadius: 5,
+        margin: 'auto',
+        marginTop: 4,}}
+        >
+            <h2 style={{textAlign: 'center'}}>ADMIN DETAILS</h2>
             Name: {currentUser.name}
             <br />
             Email: {currentUser.email}
@@ -89,7 +96,7 @@ const AdminProfile = () => {
                     </form>
                 </div>
             </Collapse> */}
-        </div>
+        </Paper>
     )
 }
 

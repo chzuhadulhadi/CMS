@@ -5,10 +5,11 @@ import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, Cs
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../assets/ucp2.jpeg";
-import { LightPurpleButton } from '../components/buttonStyles';
+import { LightBlueButton, LightPurpleButton } from '../components/buttonStyles';
 import styled from 'styled-components';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
+import UcpLogo from '../assets/ucpLogo.jpeg'
 
 const defaultTheme = createTheme();
 
@@ -113,7 +114,9 @@ const LoginPage = ({ role }) => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+                         <img src={UcpLogo} alt="UCP Logo" style={{ width: '80px', marginBottom: '16px' }} />
+                        <Typography variant="h4" sx={{ mb: 2, color: "#0B60B0" }}>
+                            
                             {role} Login
                         </Typography>
                         <Typography variant="h7">
@@ -200,7 +203,7 @@ const LoginPage = ({ role }) => {
                                     Forgot password?
                                 </StyledLink>
                             </Grid>
-                            <LightPurpleButton
+                            <LightBlueButton
                                 type="submit"
                                 fullWidth
                                 variant="contained"
@@ -209,7 +212,7 @@ const LoginPage = ({ role }) => {
                                 {loader ?
                                     <CircularProgress size={24} color="inherit" />
                                     : "Login"}
-                            </LightPurpleButton>
+                            </LightBlueButton>
                           
                             {role === "Admin" &&
                                 <Grid container>
@@ -258,5 +261,5 @@ export default LoginPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #7f56da;
+  color: #0B60B0;
 `;

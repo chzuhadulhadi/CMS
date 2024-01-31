@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { getTeacherDetails } from '../../../redux/teacherRelated/teacherHandle';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Container, Typography } from '@mui/material';
+import { Button, Paper, Typography } from '@mui/material';
 
 const TeacherDetails = () => {
     const navigate = useNavigate();
@@ -31,9 +31,15 @@ const TeacherDetails = () => {
             {loading ? (
                 <div>Loading...</div>
             ) : (
-                <Container>
+                <Paper 
+                sx ={{ width: '70%',
+                padding: 2,
+                borderRadius: 5,
+                margin: 'auto',
+                marginTop: 4,}}
+                >
                     <Typography variant="h4" align="center" gutterBottom>
-                        Teacher Details
+                        TEACHER DETAILS
                     </Typography>
                     <Typography variant="h6" gutterBottom>
                         Teacher Name: {teacherDetails?.name}
@@ -55,7 +61,7 @@ const TeacherDetails = () => {
                             Add Subject
                         </Button>
                     )}
-                </Container>
+                </Paper>
             )}
         </>
     );

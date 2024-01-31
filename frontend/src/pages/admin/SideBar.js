@@ -6,11 +6,13 @@ import HomeIcon from "@mui/icons-material/Home";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-import AnnouncementOutlinedIcon from '@mui/icons-material/AnnouncementOutlined';
 import ClassOutlinedIcon from '@mui/icons-material/ClassOutlined';
 import SupervisorAccountOutlinedIcon from '@mui/icons-material/SupervisorAccountOutlined';
 import ReportIcon from '@mui/icons-material/Report';
+import FeedbackIcon from '@mui/icons-material/Feedback';
+import EventNoteIcon from '@mui/icons-material/EventNote';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 const SideBar = () => {
     const location = useLocation();
@@ -49,19 +51,19 @@ const SideBar = () => {
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/notices">
                     <ListItemIcon>
-                        <AnnouncementOutlinedIcon color={location.pathname.startsWith("/Admin/notices") ? 'primary' : 'inherit'} />
+                        <EventNoteIcon color={location.pathname.startsWith("/Admin/notices") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
                     <ListItemText primary="Notices" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/complains">
                     <ListItemIcon>
-                        <ReportIcon color={location.pathname.startsWith("/Admin/complains") ? 'primary' : 'inherit'} />
+                        <FeedbackIcon color={location.pathname.startsWith("/Admin/complains") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
-                    <ListItemText primary="Complains" />
+                    <ListItemText primary="Feedbacks" />
                 </ListItemButton>
                 <ListItemButton component={Link} to="/Admin/Addtimetable">
                     <ListItemIcon>
-                        <ReportIcon color={location.pathname.startsWith("/Admin/timetable") ? 'primary' : 'inherit'} />
+                        <AccessTimeFilledIcon color={location.pathname.startsWith("/Admin/timetable") ? 'primary' : 'inherit'} />
                     </ListItemIcon>
                     <ListItemText primary="Timetable" />
                 </ListItemButton>

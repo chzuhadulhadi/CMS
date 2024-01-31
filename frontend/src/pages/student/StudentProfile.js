@@ -13,7 +13,7 @@ const StudentProfile = () => {
   const studentSchool = currentUser.school
 
   return (
-    <>
+    <PageContainer>
       <Container maxWidth="md">
         <StyledPaper elevation={3}>
           <Grid container spacing={2}>
@@ -54,7 +54,7 @@ const StudentProfile = () => {
             </Grid>
           </Grid>
         </StyledPaper>
-        <Card>
+        {/* <Card>
           <CardContent>
             <Typography variant="h6" gutterBottom>
               Personal Information
@@ -92,9 +92,9 @@ const StudentProfile = () => {
               </Grid>
             </Grid>
           </CardContent>
-        </Card>
+        </Card> */}
       </Container>
-    </>
+    </PageContainer>
   )
 }
 
@@ -103,4 +103,11 @@ export default StudentProfile
 const StyledPaper = styled(Paper)`
   padding: 20px;
   margin-bottom: 20px;
+`;
+
+const PageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Make the container take the full height of the viewport */
 `;

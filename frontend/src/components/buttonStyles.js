@@ -23,6 +23,7 @@ export const BlackButton = styled(Button)`
       background-color: #212020;
       border-color: #212020;
       box-shadow: none;
+      border: none;
     }
   }
 `;
@@ -43,6 +44,7 @@ export const BlueButton = styled(Button)`
   && {
     background-color: #080a43;
     color: #fff;
+    margin: .3rem;
     &:hover {
       background-color: #0a1e82;
     }
@@ -102,3 +104,68 @@ export const IndigoButton = styled(Button)`
     }
   }
 `;
+
+export const GreyButton = styled(Button)`
+  && {
+    background-color: #808080;
+    color: white;
+    margin-left: 4px;
+    &:hover {
+      background-color: #a9a9a9;
+      border-color: #a9a9a9;
+      box-shadow: none;
+    }
+  }
+`;
+export const CustomColorButton = styled(Button)`
+  && {
+    background-color: #637a9f;
+    color: white;
+    margin-left: 4px;
+    &:hover {
+      background-color: #8299b8;
+      border-color: #8299b8;
+      box-shadow: none;
+    }
+  }
+`;
+
+export const YellowButton = styled(Button)`
+  && {
+    background-color: #e8c872;
+    color: white;
+    margin-left: 4px;
+    &:hover {
+      background-color: #f4db9a;
+      border-color: #f4db9a;
+      box-shadow: none;
+    }
+  }
+`;
+export const SteelBlueButton = styled(Button)`
+  && {
+    background-color: #1F2544;
+    color: white;
+    margin-left: 4px;
+    &:hover {
+      background-color: #5c6697;
+      border-color: #5c6697;
+      box-shadow: none;
+    }
+  }
+`;
+
+export const LightBlueButton = styled(Button)`
+  && {
+    background-color: #0b60b0;
+    color: white;
+    margin-left: 4px;
+    &:hover {
+      background-color: #2a78c4;
+      border-color: #2a78c4;
+      box-shadow: none;
+    }
+  }
+`;
+
+

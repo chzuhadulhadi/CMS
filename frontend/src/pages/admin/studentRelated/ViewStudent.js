@@ -19,6 +19,7 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 import TableChartIcon from '@mui/icons-material/TableChart';
 import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import Popup from '../../../components/Popup';
+import { BlueButton, LightBlueButton } from '../../../components/buttonStyles';
 
 const ViewStudent = () => {
     const [showTab, setShowTab] = useState(false);
@@ -147,7 +148,7 @@ const ViewStudent = () => {
         const renderTableSection = () => {
             return (
                 <>
-                    <h3>Attendance:</h3>
+                    <h3>Attendance</h3>
                     <Table>
                         <TableHead>
                             <StyledTableRow>
@@ -175,10 +176,10 @@ const ViewStudent = () => {
                                             <IconButton onClick={() => removeSubAttendance(subId)}>
                                                 <DeleteIcon color="error" />
                                             </IconButton>
-                                            <Button variant="contained" sx={styles.attendanceButton}
+                                            <BlueButton variant="contained" sx={styles.attendanceButton}
                                                 onClick={() => navigate(`/Admin/subject/student/attendance/${studentID}/${subId}`)}>
                                                 Change
-                                            </Button>
+                                            </BlueButton>
                                         </StyledTableCell>
                                     </StyledTableRow>
                                     <StyledTableRow>
@@ -223,9 +224,9 @@ const ViewStudent = () => {
                         Overall Attendance Percentage: {overallAttendancePercentage.toFixed(2)}%
                     </div>
                     <Button variant="contained" color="error" startIcon={<DeleteIcon />} onClick={() => removeHandler(studentID, "RemoveStudentAtten")}>Delete All</Button>
-                    <Button variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/attendance/" + studentID)}>
+                    <LightBlueButton variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/attendance/" + studentID)}>
                         Add Attendance
-                    </Button>
+                    </LightBlueButton>
                 </>
             )
         }
@@ -260,9 +261,9 @@ const ViewStudent = () => {
                         </Paper>
                     </>
                     :
-                    <Button variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/attendance/" + studentID)}>
+                    <LightBlueButton variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/attendance/" + studentID)}>
                         Add Attendance
-                    </Button>
+                    </LightBlueButton>
                 }
             </>
         )
@@ -272,7 +273,7 @@ const ViewStudent = () => {
         const renderTableSection = () => {
             return (
                 <>
-                    <h3>Subject Marks:</h3>
+                    <h3>Subject Marks</h3>
                     <Table>
                         <TableHead>
                             <StyledTableRow>
@@ -294,9 +295,9 @@ const ViewStudent = () => {
                             })}
                         </TableBody>
                     </Table>
-                    <Button variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/marks/" + studentID)}>
+                    <LightBlueButton variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/marks/" + studentID)}>
                         Add Marks
-                    </Button>
+                    </LightBlueButton>
                 </>
             )
         }
@@ -331,9 +332,9 @@ const ViewStudent = () => {
                         </Paper>
                     </>
                     :
-                    <Button variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/marks/" + studentID)}>
+                    <LightBlueButton variant="contained" sx={styles.styledButton} onClick={() => navigate("/Admin/students/student/marks/" + studentID)}>
                         Add Marks
-                    </Button>
+                    </LightBlueButton>
                 }
             </>
         )
@@ -354,9 +355,9 @@ const ViewStudent = () => {
                         <CustomPieChart data={chartData} />
                     )
                 }
-                <Button variant="contained" sx={styles.styledButton} onClick={deleteHandler}>
+                {/* <Button variant="contained" sx={styles.styledButton} onClick={deleteHandler}>
                     Delete
-                </Button>
+                </Button> */}
                 <br />
                 {/* <Button variant="contained" sx={styles.styledButton} className="show-tab" onClick={() => { setShowTab(!showTab) }}>
                     {

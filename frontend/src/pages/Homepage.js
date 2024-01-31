@@ -2,42 +2,42 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Box } from '@mui/material';
 import styled from 'styled-components';
-import Students from "../assets/ucp.jpeg";
-import { LightPurpleButton } from '../components/buttonStyles';
+import UCPHomePage from "../assets/ucp.jpeg";
+import { CustomColorButton, LightBlueButton, LightPurpleButton } from '../components/buttonStyles';
 
 const Homepage = () => {
     return (
-        <StyledContainer>
+        <StyledContainer  >
             <Grid container spacing={0}>
                 <Grid item xs={12} md={6}>
-                    <img src={Students} alt="students" style={{ width: '100%' , marginTop: '2rem' , borderRadius: '12px' }} />
+                    <img src={UCPHomePage} alt="students" style={{ width: '100%' , marginTop: '2rem' , borderRadius: '12px' }} />
                 </Grid>
                 <Grid item xs={12} md={6}>
                     <StyledPaper elevation={3}>
-                        <StyledTitle>
+                        <StyledTitle style = {{textAlign: 'center'}}>
                             Welcome to
                             <br />
                             UCP Learning Management
                             <br />
                             System
                         </StyledTitle>
-                        <StyledText>
+                        <StyledText style = {{textAlign: 'center'}}>
                             Streamline learning management, class organization, and add students and faculty.
                             Seamlessly track attendance, assess performance, and provide feedback.
                             Access records, view marks, and communicate effortlessly.
                         </StyledText>
                         <StyledBox>
                             <StyledLink to="/choose">
-                                <LightPurpleButton variant="contained" fullWidth >
+                                <LightBlueButton variant="contained" fullWidth >
                                     Login To Continue   
-                                </LightPurpleButton>
+                                </LightBlueButton>
                             </StyledLink>
                             <StyledLink to="/chooseasguest">
                             
                             </StyledLink>
                             <StyledText>
                                 Don't have an account?{' '}
-                                <Link to="/Adminregister" style={{color:"#550080"}}>
+                                <Link to="/Adminregister" style={{color:"#0B60B0"}}>
                                     Sign up
                                 </Link>
                             </StyledText>

@@ -13,6 +13,7 @@ import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../redux/userRelated/userHandle';
 import Popup from '../components/Popup';
+import UCPChoose from '../assets/ucp2.jpeg'
 
 const ChooseUser = ({ visitor }) => {
   const dispatch = useDispatch()
@@ -128,7 +129,7 @@ const ChooseUser = ({ visitor }) => {
         </Grid>
       </Container>
       <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        sx={{ color: '#C9D7DD', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loader}
       >
         <CircularProgress color="inherit" />
@@ -142,11 +143,14 @@ const ChooseUser = ({ visitor }) => {
 export default ChooseUser;
 
 const StyledContainer = styled.div`
-  background: linear-gradient(to bottom, #411d70, #19118b);
-  height: 120vh;
-  display: flex;
-  justify-content: center;
-  padding: 2rem;
+
+background-image: url(${UCPChoose});
+background-size: cover;
+background-position: center;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 const StyledPaper = styled(Paper)`
@@ -157,7 +161,7 @@ const StyledPaper = styled(Paper)`
   cursor:pointer;
 
   &:hover {
-    background-color: #2c2c6c;
+    background-color: #0B60B0;
     color:white;
   }
 `;

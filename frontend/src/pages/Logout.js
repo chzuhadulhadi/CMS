@@ -31,6 +31,7 @@ const Logout = () => {
 
 export default Logout;
 
+
 const LogoutContainer = styled.div`
   border: 1px solid #ccc;
   border-radius: 10px;
@@ -41,7 +42,15 @@ const LogoutContainer = styled.div`
   align-items: center;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
   background-color: #85769f66;
-  color: black;
+  color: #0B60B0;
+  min-height: 100vh; /* Make the container take the full height of the viewport */
+`;
+
+const PageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Make the body take the full height of the viewport */
 `;
 
 const LogoutMessage = styled.p`
@@ -69,5 +78,5 @@ const LogoutButtonLogout = styled(LogoutButton)`
 `;
 
 const LogoutButtonCancel = styled(LogoutButton)`
-  background-color: rgb(99, 60, 99);
+  background-color: #0B60B0;
 `;

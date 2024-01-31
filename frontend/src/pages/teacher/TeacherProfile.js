@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Card, CardContent, Typography } from '@mui/material';
+import { Card, CardContent, Paper, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 
 const TeacherProfile = () => {
@@ -14,8 +14,12 @@ const TeacherProfile = () => {
   const teachSchool = currentUser.school
 
   return (
-    <>
-      <ProfileCard>
+    
+      <ProfileCard  sx ={{ width: '70%',
+      padding: 2,
+      borderRadius: 5,
+      margin: 'auto',
+      marginTop: 4,}}>
         <ProfileCardContent>
           <ProfileText>Name: {currentUser.name}</ProfileText>
           <ProfileText>Email: {currentUser.email}</ProfileText>
@@ -24,7 +28,7 @@ const TeacherProfile = () => {
           <ProfileText>School: {teachSchool.schoolName}</ProfileText>
         </ProfileCardContent>
       </ProfileCard>
-    </>
+    
   )
 }
 
@@ -43,5 +47,8 @@ const ProfileCardContent = styled(CardContent)`
 `;
 
 const ProfileText = styled(Typography)`
-  margin: 10px;
+margin-top: 30px;
+margin-bottom: 30px; 
+letter-spacing: normal;
+line-height: normal;
 `;

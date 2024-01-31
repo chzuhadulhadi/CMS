@@ -103,18 +103,29 @@ const StudentSubjects = () => {
     };
 
     return (
+        <Paper sx ={{ width: '70%',
+        padding: 2,
+        borderRadius: 5,
+        margin: 'auto',
+        marginTop: 4,}}>
+       
+    
         <>
             {loading ? (
                 <div>Loading...</div>
             ) : (
                 <div>
+                    
                     {subjectMarks && Array.isArray(subjectMarks) && subjectMarks.length > 0
                         ?
                         (<>
                             {selectedSection === 'table' && renderTableSection()}
                             {selectedSection === 'chart' && renderChartSection()}
 
+                            
+
                             <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+                                
                                 <BottomNavigation value={selectedSection} onChange={handleSectionChange} showLabels>
                                     <BottomNavigationAction
                                         label="Table"
@@ -127,6 +138,7 @@ const StudentSubjects = () => {
                                         icon={selectedSection === 'chart' ? <InsertChartIcon /> : <InsertChartOutlinedIcon />}
                                     />
                                 </BottomNavigation>
+                                
                             </Paper>
                         </>)
                         :
@@ -137,7 +149,9 @@ const StudentSubjects = () => {
                 </div>
             )}
         </>
-    );
+    
+     </Paper>
+     );
 };
 
 export default StudentSubjects;

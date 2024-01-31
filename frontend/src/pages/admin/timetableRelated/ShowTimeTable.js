@@ -40,7 +40,7 @@ const ShowTimetable = () => {
 
     const [addTimeTable, setTimeTable] = useState(false);
 
-
+  
 
     const TimetableButtonHaver = ({ row }) => {
         return (
@@ -48,14 +48,14 @@ const ShowTimetable = () => {
                 <IconButton onClick={() => deleteHandler(row.id, "Timetable")}>
                     <DeleteIcon color="error" />
                 </IconButton>
-                <IconButton onClick={() => navigate(`/timetable/${row._id}`)}>
+<IconButton onClick={() => navigate(`/timetable/${row._id}`)}>
                     <PreviewIcon color="primary" />
                 </IconButton>
             </>
         );
     };
 
-
+    
 
     const actions = [
         {
@@ -71,21 +71,24 @@ const ShowTimetable = () => {
 
     return (
         <>
-
+        
             {loading ?
                 <div>Loading...</div>
                 :
                 <>
-                    {addTimeTable && < AddTimetable />}
+                 {addTimeTable && < AddTimetable />} 
                     {response ?
                         <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
                             <GreenButton variant="contained"
                                 onClick={() => setTimeTable(true)}>
+                                    
                                 Add Time Table
                             </GreenButton>
                         </Box>
                         :
                         <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                                     
+                                   
                             {Array.isArray(timetablesList) && timetablesList.length > 0 &&
                                 <TableTemplate buttonHaver={TimetableButtonHaver}
                                     columns={[
@@ -102,8 +105,8 @@ const ShowTimetable = () => {
                 </>
 
             }
-
-
+            
+            
         </>
     );
 };

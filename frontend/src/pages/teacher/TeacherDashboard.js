@@ -23,6 +23,8 @@ import TeacherHomePage from './TeacherHomePage';
 import TeacherProfile from './TeacherProfile';
 import TeacherViewStudent from './TeacherViewStudent';
 import StudentExamMarks from '../admin/studentRelated/StudentExamMarks';
+import UcpDark from "../../assets/UcpDarkLogo.jpeg";
+import UcpLogo from "../../assets/ucpLogo.jpeg";
 
 const TeacherDashboard = () => {
     const [open, setOpen] = useState(true);
@@ -34,7 +36,7 @@ const TeacherDashboard = () => {
         <>
             <Box sx={{ display: 'flex' }}>
                 <CssBaseline />
-                <AppBar open={open} position='absolute'>
+                <AppBar style={{backgroundColor: '#080a43'}} open={open} position='absolute'>
                     <Toolbar sx={{ pr: '24px' }}>
                         <IconButton
                             edge="start"
@@ -48,24 +50,61 @@ const TeacherDashboard = () => {
                         >
                             <MenuIcon />
                         </IconButton>
-                        <Typography
-                            component="h1"
-                            variant="h6"
-                            color="inherit"
-                            noWrap
-                            sx={{ flexGrow: 1 }}
-                        >
-                            Teacher Dashboard
-                        </Typography>
+                        <img
+              src={UcpLogo}
+              alt="UcpLogo"
+              style={{ width: "50px", height: "50px", margin: "10px" , borderRadius: '25px' }}
+            />
+            <Typography
+              component="h1"
+              variant="h6"
+              color="inherit"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              University of Central Punjab
+            </Typography>
                         <AccountMenu />
                     </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open} sx={open ? styles.drawerStyled : styles.hideDrawer}>
-                    <Toolbar sx={styles.toolBarStyled}>
-                        <IconButton onClick={toggleDrawer}>
-                            <ChevronLeftIcon />
-                        </IconButton>
-                    </Toolbar>
+                <Toolbar
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: "#080a43",
+              color: "white",
+            }}
+            sx={styles.toolBarStyled}
+          >
+            <IconButton
+              style={{ color: "white !important" }}
+              onClick={toggleDrawer}
+            >
+              <ChevronLeftIcon />
+            </IconButton>
+            <Box
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              marginLeft="1rem"
+            >
+              <IconButton>
+                <img
+                  src={UcpDark}
+                  alt="UcpDarkLogo"
+                  style={{ width: "70px", height: "60px", marginRight: '2rem' ,  borderRadius: '25px' }}
+                />
+              </IconButton>
+
+              <Typography
+                style={{ textAlign: "center" , marginRight: '2rem'}}
+              >
+                Teacher Dashboard
+              </Typography>
+            </Box>
+          </Toolbar>
                     <Divider />
                     <List component="nav">
                         <TeacherSideBar />

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom'
 import { getClassStudents } from "../../redux/sclassRelated/sclassHandle";
 import { Paper, Box, Typography, ButtonGroup, Button, Popper, Grow, ClickAwayListener, MenuList, MenuItem } from '@mui/material';
-import { BlackButton, BlueButton} from "../../components/buttonStyles";
+import { BlackButton, BlueButton, LightBlueButton} from "../../components/buttonStyles";
 import TableTemplate from "../../components/TableTemplate";
 import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 
@@ -79,18 +79,18 @@ const TeacherClassDetails = () => {
         };
         return (
             <>
-                <BlueButton
+                <LightBlueButton
                     variant="contained"
                     onClick={() =>
                         navigate("/Teacher/class/student/" + row.id)
                     }
                 >
                     View
-                </BlueButton>
+                </LightBlueButton>
                 <React.Fragment>
                     <ButtonGroup variant="contained" ref={anchorRef} aria-label="split button">
-                        <Button onClick={handleClick}>{options[selectedIndex]}</Button>
-                        <BlackButton
+                        <BlueButton onClick={handleClick}>{options[selectedIndex]}</BlueButton>
+                        <LightBlueButton
                             size="small"
                             aria-controls={open ? 'split-button-menu' : undefined}
                             aria-expanded={open ? 'true' : undefined}
@@ -99,7 +99,7 @@ const TeacherClassDetails = () => {
                             onClick={handleToggle}
                         >
                             {open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}
-                        </BlackButton>
+                        </LightBlueButton>
                     </ButtonGroup>
                     <Popper
                         sx={{
@@ -149,8 +149,8 @@ const TeacherClassDetails = () => {
                 <div>Loading...</div>
             ) : (
                 <>
-                    <Typography variant="h4" align="center" gutterBottom>
-                        Class Details
+                    <Typography style={{marginTop: '2rem'}} variant="h4" align="center" gutterBottom>
+                        CLASS DETAILS
                     </Typography>
                     {getresponse ? (
                         <>
@@ -159,9 +159,13 @@ const TeacherClassDetails = () => {
                             </Box>
                         </>
                     ) : (
-                        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+                        <Paper sx ={{ width: '70%',
+                        padding: 2,
+                        borderRadius: 5,
+                        margin: 'auto',
+                        marginTop: 4,}} >
                             <Typography variant="h5" gutterBottom>
-                                Students List:
+                                Students List
                             </Typography>
 
                             {Array.isArray(sclassStudents) && sclassStudents.length > 0 &&

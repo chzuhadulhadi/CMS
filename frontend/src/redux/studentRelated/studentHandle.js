@@ -31,10 +31,10 @@ export const updateStudentFields = (id, fields, address) => async (dispatch) => 
         });
         if (result.data.message) {
             dispatch(getFailed(result.data.message));
-            return result.data.message;
+return result.data.message;
         } else {
             dispatch(stuffDone());
-            return result.data.message;
+return result.data.message;
 
         }
     } catch (error) {

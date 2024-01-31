@@ -9,8 +9,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { getAllNotices } from '../../../redux/noticeRelated/noticeHandle';
 import { deleteUser } from '../../../redux/userRelated/userHandle';
 import TableTemplate from '../../../components/TableTemplate';
-import { GreenButton } from '../../../components/buttonStyles';
+import { BlackButton, CustomColorButton, GreenButton, LightBlueButton } from '../../../components/buttonStyles';
 import SpeedDialTemplate from '../../../components/SpeedDialTemplate';
+import AddNotice from './AddNotice'
 
 const ShowNotices = () => {
 
@@ -63,7 +64,7 @@ const ShowNotices = () => {
 
     const actions = [
         {
-            icon: <NoteAddIcon color="primary" />, name: 'Add New Notice',
+            icon: <IconButton color="primary" />, name: 'Add New Notice',
             action: () => navigate("/Admin/addnotice")
         },
         {
@@ -79,11 +80,12 @@ const ShowNotices = () => {
                 :
                 <>
                     {response ?
-                        <Box sx={{ display: 'flex', justifyContent: 'flex-end', marginTop: '16px' }}>
-                            <GreenButton variant="contained"
+                        <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: '16px' }}>
+                            {/* <LightBlueButton variant="contained"
                                 onClick={() => navigate("/Admin/addnotice")}>
                                 Add Notice
-                            </GreenButton>
+                            </LightBlueButton> */}
+                            <AddNotice />
                         </Box>
                         :
                         <Paper sx={{ width: '100%', overflow: 'hidden' }}>

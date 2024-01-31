@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserDetails } from '../../redux/userRelated/userHandle';
 import { useNavigate, useParams } from 'react-router-dom'
-import { Box, Button, Collapse, Table, TableBody, TableHead, Typography } from '@mui/material';
+import { Box, Button, Collapse, Table, TableBody, TableHead, Typography ,Paper } from '@mui/material';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@mui/icons-material';
 import { calculateOverallAttendancePercentage, calculateSubjectAttendancePercentage, groupAttendanceBySubject } from '../../components/attendanceCalculator';
 import CustomPieChart from '../../components/CustomPieChart'
-import { PurpleButton } from '../../components/buttonStyles';
+import { LightBlueButton, PurpleButton } from '../../components/buttonStyles';
 import { StyledTableCell, StyledTableRow } from '../../components/styles';
 
 const TeacherViewStudent = () => {
@@ -67,7 +67,11 @@ const TeacherViewStudent = () => {
                     <div>Loading...</div>
                 </>
                 :
-                <div>
+                <Paper sx ={{ width: '70%',
+                padding: 2,
+                borderRadius: 5,
+                margin: 'auto',
+                marginTop: 4,}}>
                     Name: {userDetails.name}
                     <br />
                     Roll Number: {userDetails.rollNum}
@@ -77,7 +81,7 @@ const TeacherViewStudent = () => {
                     School: {studentSchool.schoolName}
                     <br /><br />
 
-                    <h3>Attendance:</h3>
+                    <h3>Attendance</h3>
                     {subjectAttendance && Array.isArray(subjectAttendance) && subjectAttendance.length > 0
                         &&
                         <>
@@ -169,7 +173,7 @@ const TeacherViewStudent = () => {
                         Add Attendance
                     </Button>
                     <br /><br /><br />
-                    <h3>Subject Marks:</h3>
+                    <h3>Subject Marks</h3>
 
                     {subjectMarks && Array.isArray(subjectMarks) && subjectMarks.length > 0 &&
                         <>
@@ -199,15 +203,15 @@ const TeacherViewStudent = () => {
                             })}
                         </>
                     }
-                    <PurpleButton variant="contained"
+                    <LightBlueButton style  = {{marginTop: '1rem'}} variant="contained"
                         onClick={() =>
                             navigate(
                                 `/Teacher/class/student/marks/${studentID}/${teachSubjectID}`
                             )}>
                         Add Marks
-                    </PurpleButton>
+                    </LightBlueButton>
                     <br /><br /><br />
-                </div>
+                </Paper>
             }
         </>
     )

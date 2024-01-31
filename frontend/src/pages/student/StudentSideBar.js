@@ -39,7 +39,7 @@ const StudentSideBar = () => {
                     </ListItemIcon>
                     <ListItemText primary="Complain" />
                 </ListItemButton>
-                <ListItemButton component={Link} to="/Student/timetable">
+<ListItemButton component={Link} to="/Student/timetable">
                     <ListItemIcon>
                         <ListAltOutlined color={location.pathname.startsWith("/Student/timetable") ? 'primary' : 'inherit'} />
                     </ListItemIcon>

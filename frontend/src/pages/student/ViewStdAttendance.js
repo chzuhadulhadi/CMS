@@ -63,7 +63,11 @@ const ViewStdAttendance = () => {
 
     const renderTableSection = () => {
         return (
-            <>
+            <Paper sx = {{ width: '70%',
+            padding: 2,
+            borderRadius: 5,
+            margin: 'auto',
+            marginTop: 4,}}>
                 <Typography variant="h4" align="center" gutterBottom>
                     Attendance
                 </Typography>
@@ -135,7 +139,7 @@ const ViewStdAttendance = () => {
                 <div>
                     Overall Attendance Percentage: {overallAttendancePercentage.toFixed(2)}%
                 </div>
-            </>
+            </Paper>
         )
     }
 

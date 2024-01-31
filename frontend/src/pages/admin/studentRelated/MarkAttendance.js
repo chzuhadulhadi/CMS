@@ -20,7 +20,7 @@ import Popup from '../../../components/Popup';
 
 const MarkAttendance = () => {
     const [loader, setLoader] = useState(true)
-    const [message, setMessage] = useState('');
+const [message, setMessage] = useState('');
     const path = window.location.pathname.split("/");
     const subjectID = path[path.length - 1];
     const studentID = path[path.length - 2];
@@ -37,7 +37,7 @@ const MarkAttendance = () => {
     },[]);
     const attendanceAPI = async () => {
         setMessage(`${process.env.REACT_APP_BASE_URL}/${"StudentAttendance"}/${studentID}`);
-        const result = await axios.put(`http://192.168.100.27:5000/${"StudentAttendance"}/${studentID}`, fields, {
+        const result = await axios.put(`http://192.168.18.55:5000/${"StudentAttendance"}/${studentID}`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
         setMessage(result.data.message);
@@ -61,7 +61,7 @@ const MarkAttendance = () => {
                 <div>Loading...</div>
             ) : (
                 <><div>Attendance Marked</div>
-                    {/* {studentID} */}
+                {/* {studentID} */}
                     {/* {subjectID} */}
                 </>
 

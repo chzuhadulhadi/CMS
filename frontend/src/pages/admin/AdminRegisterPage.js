@@ -6,10 +6,11 @@ import { Grid, Box, Typography, Paper, Checkbox, FormControlLabel, TextField, Cs
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import bgpic from "../../assets/ucp2.jpeg"
-import { LightPurpleButton } from '../../components/buttonStyles';
+import { LightBlueButton, LightPurpleButton } from '../../components/buttonStyles';
 import { registerUser } from '../../redux/userRelated/userHandle';
 import styled from 'styled-components';
 import Popup from '../../components/Popup';
+import UcpLogo from '../../assets/ucpLogo.jpeg'
 
 const defaultTheme = createTheme();
 
@@ -88,7 +89,8 @@ const AdminRegisterPage = () => {
                             alignItems: 'center',
                         }}
                     >
-                        <Typography variant="h4" sx={{ mb: 2, color: "#2c2143" }}>
+                         <img src={UcpLogo} alt="UCP Logo" style={{ width: '80px', marginBottom: '16px' }} />
+                        <Typography variant="h4" sx={{ mb: 2, color: "#0B60B0" }}>
                             Admin Register
                         </Typography>
                         <Typography variant="h7">
@@ -167,14 +169,14 @@ const AdminRegisterPage = () => {
                                     label="Remember me"
                                 />
                             </Grid>
-                            <LightPurpleButton
+                            <LightBlueButton
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
                                 {loader ? <CircularProgress size={24} color="inherit"/> : "Register"}
-                            </LightPurpleButton>
+                            </LightBlueButton>
                             <Grid container>
                                 <Grid>
                                     Already have an account?
@@ -213,5 +215,5 @@ export default AdminRegisterPage
 const StyledLink = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
-  color: #7f56da;
+  color: #0B60B0;
 `;
