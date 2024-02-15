@@ -2,10 +2,10 @@
 This repo contains the Student Managment System build in MERN.
 
 # Getting Started
-##Installation process
+## Install
 ```npm install```
 
-## For Starting Development Server
+## Start Development Server
 ```npm run dev```
 
 # Contribute
